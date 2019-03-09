@@ -1,0 +1,58 @@
+{% include 'index.html' %}
+
+
+{% block title %}Авторизация{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ url_for('static', filename='auth/auth.css') }}">
+{% endblock %}
+
+{% block content %}
+    <form id="ajax-contact" method="post" action="">
+            <h2>Регистрация</h2>
+            <div id='start_invest'>
+                <input type="radio" name="mycheck" value="1" id='start' checked/>
+                <label for='start' class='start_invest_slader'
+                id='start_invest_slader_1'>Стартапер</label>
+                <input type="radio" name="mycheck" value="2" id='invest'/>
+                <label for='invest' id='start_invest_slader_2'>Инвестор</label>
+            </div>
+            <div class='wrapper_input'>
+                {{form.first_name}}
+                {{form.last_name}}
+                {{form.email}}
+                {{form.password}}
+                {{form.confirm_password}}
+            </div>
+            <div class='register_btn'>
+                {{form.submit}}
+            </div>
+        </form>
+        <div class='reg_btn_slider btn_to_vhod'><span>У меня уже есть аккаунт</span></div>
+    </div>
+
+        <form id="ajax-contact" method="post" action="дляМакса">
+            <h2>Вход</h2>
+            <div class='wrapper_input'>
+                <input type="email" name="Mail" placeholder="Ваша почта">
+                <input type="password" name="first_pass" placeholder="Ваш пароль">
+            </div>
+            {% for message in get_flashed_messages() %}
+                <div class='flash'>{{ message }}</div>
+            {% endfor %}
+            <div class='register_btn'>
+                <input type="submit"  value="Зарегистрироваться!" class='input_submit'>
+            </div>
+        </form>
+        <div class='reg_btn_slider btn_to_reg'><span>У меня еще нет аккаунта :(</span></div>
+{% endblock %}
+
+
+
+
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='auth/auth.js') }}"></script>
+{% endblock %}
+
+

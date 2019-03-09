@@ -1,0 +1,125 @@
+<!doctype html>
+<html style='overflow-x:hidden;'>
+<head>
+<meta charset="UTF-8">
+    <title>  {% block title %}Главная{% endblock %}</title> 
+
+    {% block stylesheets %} 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='for_mainPage.css') }}">
+    {% endblock %}
+</head>
+<body>
+
+
+    {% block content %}
+    <div class='main_project_wrapper'>
+
+        <div class='main_project_sitebar'>
+
+        	(% if g.user %)
+                    (% inclide navBar_Red.html %)
+            {% else %}
+                     <a href="{{ url_for('auth') }}">Авторизоваться</a>
+            {% endif %}
+
+        </div>
+
+
+        <div class='main_project_contant'>
+            <div class='contant-up-contant'>
+                <div id='contant_for_foto'>
+                    <img src="/Users/ila/Downloads/0_a4a6d_208a76f3_XL[1].jpg">
+                </div>
+                <div id='profile_right_info'>
+                    <div id='profile_right_info_up'>
+                        <div class='profile_name_online'>
+                        <div class='name_start_invest'>
+                            <h1>{{ g.user['first_name'] }} {{ g.user['last_name'] }}</h1>
+                            <span>стартапер/инвестор</span>
+                        </div>
+                        <div id='profile_activity'>online</div>
+                    </div>
+                    <div class='profile_want_to_do'>
+                        <div class='profile_want_block'>
+                            <i class="material-icons md-24">create</i>
+                            <span class='profile_want_block_text'>WEB Frondend</span>
+                        </div>
+                        <div class='profile_want_block'>
+                            <i class="material-icons md-24">create</i>
+                            <span class='profile_want_block_text'>WEB Backend</span>
+                        </div>
+                        <div class='profile_want_block'>
+                            <i class="material-icons md-24">create</i>
+                            <span class='profile_want_block_text'>Design</span>
+                        </div>
+                        <div class='profile_want_block'>
+                            <i class="material-icons md-24">create</i>
+                            <span class='profile_want_block_text'>Copyright</span>
+                        </div>
+                        <div class='profile_want_block'>
+                            <i class="material-icons md-24">create</i>
+                            <span class='profile_want_block_text'>Android development</span>
+                        </div>
+                        <div class='profile_want_block'>
+                            <span class='profile_want_block_text'>еще</span>
+                        </div>
+                    </div>
+                    <div class='profile_info_start'>
+                        <div class='profile_column' id='profile_column_1'>
+                            <div class='profile_startUps' id='profile_startUps_1'>
+                                <div>Наблюдатель</div>
+                                <div class='profile_startUps_text'>стартапа</div>
+                            </div>
+                            <div class='profile_startup_colvo'>1000</div>
+                        </div>
+                        <div class='profile_column' id='profile_column_2'>
+                            <div class='profile_startUps' id='profile_startUps_2'>
+                                <div>Деятель</div>
+                                <div class='profile_startUps_text'>стартапа</div>
+                            </div>
+                            <div class='profile_startup_colvo'>10</div>
+                        </div>
+                        <div class='profile_column' id='profile_column_3'>
+                            <div class='profile_startUps' id='profile_startUps_3'>
+                                <div>Инициатор</div>
+                                <div class='profile_startUps_text'>стартапа</div>
+                            </div>
+                            <div class='profile_startup_colvo'>1</div>
+                        </div>
+                    </div>
+                    </div>
+                    <div id='profile_right_info_bottom'>
+                        <div class='profile_message_class' id="profile_friends">Сохранить в контакты</div>
+                        <div class='profile_message_class' id="profile_message">Связаться</div>
+                    </div>
+                </div>
+            </div>
+            <div id='contant_under'>
+                <div id='contant_bar'>
+                    <ul>
+                        <li id='contant_bar_1' class='contant_bar_active'>Блог<span id='contant_bar_1_s'></span></li>
+                        <li id='contant_bar_2'>Информация</li>
+                        <li id='contant_bar_3'>Портфолио</li>
+                        <li id='contant_bar_4'>Рейтинг</li>
+                    </ul>
+                </div>
+                <div id='contant_for_blog'>
+                    <div id='contant_for_blog_write'>Написать</div>
+                    <div id='contant_for_blog_net_blog'>
+                        <div>Здесь люди пишут о том, чему они научились</div>
+                        <div>Если ты опять ничего весь день не делал, то</div>
+                        <div id='contant_for_blog_net_blog_nax'>иди нахуй отсюда</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+
+</body>
+</html>
+
+

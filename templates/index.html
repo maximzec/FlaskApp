@@ -1,0 +1,50 @@
+<!doctype html>
+<html style='overflow-x:hidden;'>
+<head>
+<meta charset="UTF-8">
+<title>{% block title %}{% endblock %}| Стартовая</title>
+    {% block stylesheets %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/for_index.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Cuprum" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    {% endblock %}
+</head>
+<body>
+     
+     <section id='header'>
+         <div class='header_wrapper'>
+             <header>
+                 <div id='top_logo'>
+                     <a href="#"class='top_logo_txt'>Логотип</a>
+                     <a href="#" >Стартапы</a>
+                     <a href="#">Стартаперы</a>
+                 </div>
+                 <div class='search_site'>
+                     <input type="text" name="search" placeholder="Поиск по сайту" id='search'>
+                     <input type="button" name="search_button" value="найти!" id='search_button'>
+                 </div>
+                 <div class='header_right'>
+                    {% if g.user %}
+                    <span class='header_user'>{{ g.user['username'] }}</span>
+                    {% else %}
+                    <a href="{{ url_for('auth') }}">Авторизоваться</a>
+                    {% endif %}
+                 </div>
+             </header>
+         </div>
+     </section>
+
+
+     <div class='content_wrapper'>
+         {% block content %}{% endblock %}
+     </div>
+     
+    {% block scripts %} 
+        <script src="{{ url_for('static', filename='for_index.js') }}"></script>
+    {% endblock %}
+</body>
+</html>
+
+
+
+
