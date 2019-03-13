@@ -1,3 +1,5 @@
+
+
 class User(object):
 
     def __init__(self , result):
@@ -6,4 +8,3 @@ class User(object):
         self.email = result ['email']
         self.password = result ['password']
 
-    def packageJSON(self):
