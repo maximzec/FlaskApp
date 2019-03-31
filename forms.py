@@ -11,7 +11,7 @@ class RegistrationForm(FlaskForm):
     confirm_password = PasswordField('Confirm Password',
                                      validators=[DataRequired(), EqualTo('Password')],render_kw={"placeholder" : "Повторите пароль"})
 
-    submit = SubmitField('Sign Up' , render_kw={'placeholder':'Зарегестрхироваться'})
+    submit = SubmitField('Sign Up', render_kw={'placeholder':'Зарегестрхироваться'})
 
 
 class LoginForm(FlaskForm):
